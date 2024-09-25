@@ -1,9 +1,5 @@
 ---
-import Header from '../components/header.astro';
-import Footer from '../components/footer.astro';
-import '../styles/global.css';
-
-const pageTitle = "About Me";
+import BaseLayout from "../layouts/base-layout.astro";
 
 const identity = {
   firstName: "Alessandro",
@@ -23,13 +19,7 @@ const fontWeight = "bold";
 const textCase = "uppercase"
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<meta name="viewport" content="width=device-width" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Astro | {pageTitle}</title>
+<BaseLayout pageTitle="About Me">
     <style define:vars={{skillColor, fontWeight, textCase}}>
       h1 {
         color: purple;
@@ -41,11 +31,6 @@ const textCase = "uppercase"
         text-transform: var(--textCase);
       }
     </style>
-	</head>
-	<body>
-    <Header />
-
-		<h1>{pageTitle}</h1>
     <h2>... and my new Astro Site!</h2>
 
     <p>I am working through Astro's introductory tutorial. This is the second page on my website, and it's the first one I built myself!</p>
@@ -68,6 +53,4 @@ const textCase = "uppercase"
     {finished && <p>I finished this tutorial!</p>}
 
     {goal === 3 ? <p>My goal is to finish in 3 days.</p> : <p>My goal is not 3 days.</p>}
-    <Footer />
-	</body>
-</html>
+</BaseLayout>
